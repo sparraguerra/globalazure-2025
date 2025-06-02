@@ -1,0 +1,18 @@
+CONTAINER_APP_NAME="ca-ga2025-maintenance"
+CONTAINER_APP_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
+CONTAINER_APP_TARGET_PORT="80"
+LOCATION="westus3"
+RESOURCE_GROUP="rg-ga2025"
+ENVIRONMENT_NAME="cae-ga2025-maintenance" 
+
+
+az containerapp up --name $CONTAINER_APP_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --environment $ENVIRONMENT_NAME --image $CONTAINER_APP_IMAGE --target-port $CONTAINER_APP_TARGET_PORT --ingress external --query properties.configuration.ingress.fqdn
+
+
+az containerapp env maintenance-config add --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --weekday Monday --start-hour-utc 1  --duration 8
+
+az containerapp env maintenance-config update  --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --weekday Monday --start-hour-utc 1  --duration 8
+
+az containerapp env maintenance-config list  --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME
+
+az containerapp env maintenance-config remove  --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME

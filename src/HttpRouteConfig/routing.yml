@@ -1,0 +1,92 @@
+rules:
+  - description: "App 1 rule"
+    routes:
+      - match:
+          prefix: /app1
+          caseSensitive: false
+        action:
+          prefixRewrite: /
+    targets:
+      - containerApp: ca-ga2025-routing-1  
+  - description: "Routing to get .svg file from ca-ga2025-routing-1"
+    routes:
+      - match:
+          prefix: "/aca.svg"
+        action:
+          prefixRewrite: "/aca.svg"
+    targets:
+      - containerApp: ca-ga2025-routing-1
+  - description: "Routing to serve style.css from ca-ga2025-routing-1"
+    routes:
+      - match:
+          prefix: "/style.css"
+        action:
+          prefixRewrite: "/style.css"
+    targets:
+      - containerApp: ca-ga2025-routing-1
+
+  - description: "App 2 rule"
+    routes:
+      - match:
+          path: /app2
+          caseSensitive: false
+        action:
+          prefixRewrite: /
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to get bootstrap.min.css file from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/lib/bootstrap/dist/css/bootstrap.min.css"
+        action:
+          prefixRewrite: "/lib/bootstrap/dist/css/bootstrap.min.css"
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to serve jquery.min.js from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/lib/jquery/dist/jquery.min.js"
+        action:
+          prefixRewrite: "/lib/jquery/dist/jquery.min.js"
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to serve aspnetapp.styles.css from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/aspnetapp.styles.css"
+        action:
+          prefixRewrite: "/aspnetapp.styles.css"
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to serve site.css from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/css/site.css"
+        action:
+          prefixRewrite: "/css/site.css"
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to serve site.js from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/js/site.js"
+        action:
+          prefixRewrite: "/js/site.js"
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to serve bootstrap.bundle.min.js from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+        action:
+          prefixRewrite: "/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    targets:
+      - containerApp: ca-ga2025-routing-2
+  - description: "Routing to serve favicon.ico from ca-ga2025-routing-2"
+    routes:
+      - match:
+          prefix: "/favicon.ico"
+        action:
+          prefixRewrite: "/favicon.ico"
+    targets:
+      - containerApp: ca-ga2025-routing-2

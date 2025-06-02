@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "aca.demo.api",
+      "composeLaunchUrl": "{Scheme}://localhost:63449/swagger",
+      "serviceActions": {
+        "aca.demo.api": "StartDebugging",
+        "aspire-dashboard": "StartWithoutDebugging"
+      }
+    }
+  }
+}

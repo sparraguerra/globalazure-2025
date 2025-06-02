@@ -1,0 +1,15 @@
+SESSION_POOL_NAME="ca-ga2025-sessionpool"
+CONTAINER_APP_NAME="ca-ga2025-sessionpool"
+CONTAINER_APP_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
+CONTAINER_APP_TARGET_PORT="80"
+LOCATION="germanywestcentral"
+RESOURCE_GROUP="rg-ga2025"
+ENVIRONMENT_NAME="cae-ga2025-sessionpool" 
+MAX_SESSIONS=10
+READY_SESSIONS=5
+COOLDOWN_PERIOD=300
+
+
+az containerapp env create --name $ENVIRONMENT_NAME --resource-group $RESOURCE_GROUP --location $LOCATION
+
+az containerapp sessionpool create --name $SESSION_POOL_NAME --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --location $LOCATION --container-type CustomContainer --image $CONTAINER_APP_IMAGE --target-port $CONTAINER_APP_TARGET_PORT --cooldown-period $COOLDOWN_PERIOD --max-sessions $MAX_SESSIONS --ready-sessions $READY_SESSIONS --network-status EgressEnabled

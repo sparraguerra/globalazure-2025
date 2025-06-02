@@ -1,0 +1,17 @@
+services:
+  aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    ports:
+      - "18888:18888"
+      - "18889:4317"
+    restart: always
+    container_name: aspire-dashboard 
+
+  aca.demo.api:
+    image: ${DOCKER_REGISTRY-}academoapi
+    build:
+      context: .
+      dockerfile: ACA.Demo.Api/Dockerfile
+    ports:
+      - "5100:8080"
+    container_name: aca.demo.api

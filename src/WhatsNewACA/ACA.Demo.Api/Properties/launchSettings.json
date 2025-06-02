@@ -1,0 +1,37 @@
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+        "OTEL_EXPORTER_OTLP_ENDPOINT": "https://afd-ga2025-dashboard-endpoint-epazczbwe3f6brbv.z01.azurefd.net:18889"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5262"
+    },
+    "https": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+        "OTEL_EXPORTER_OTLP_ENDPOINT": "https://afd-ga2025-dashboard-endpoint-epazczbwe3f6brbv.z01.azurefd.net:18889"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7148;http://localhost:5262"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORTS": "8081",
+        "ASPNETCORE_HTTP_PORTS": "8080",
+        "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+        "OTEL_EXPORTER_OTLP_ENDPOINT": "https://afd-ga2025-dashboard-endpoint-epazczbwe3f6brbv.z01.azurefd.net:18889"
+      },
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json"
+}
